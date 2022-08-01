@@ -36,16 +36,37 @@ const characters = [
 //4. Get array of all first names
 
 //***REDUCE***
-//1. Get total mass of all characters
 // first param is a callback function that gets ref to accumulator
 // and the current value, and the second param is the initial accumulator
 // value
-const totalMass = characters.reduce((acc, cur) => {
-  return acc + cur.mass;
-}, 0); // initialize the acc with 0
-console.log(totalMass);
+
+//1. Get total mass of all characters
+const totalMass = characters.reduce((acc, cur) => acc + cur.mass, 0); // initialize the acc with 0
+console.log("---- Total Mass Reduce Function:", totalMass);
+
 //2. Get total height of all characters
+const totalHeight = characters.reduce((acc, cur) => acc + cur.height, 0); // initialize the acc with 0
+console.log("---- Total Height Reduce Function:", totalHeight);
+
 //3. Get total number of characters by eye color
+// Initialize acc as empty object - return {color: count}
+const charactersByEyeColor = characters.reduce((acc, cur) => {
+  const eyeColor = cur.eye_color; // create local variable for cleaner code
+  if (acc[eyeColor]) {
+    // if the eye color exists, let's add 1 to the current value
+    acc[eyeColor]++;
+  } else {
+    // set the eye color to 1
+    acc[eyeColor] = 1;
+  }
+  // Return our eye color
+  return acc;
+}, {}); // initialize the acc with 0
+console.log(
+  "---- Characters by Eye Color Reduce Function:",
+  charactersByEyeColor
+);
+
 //4. Get total number of characters in all the character names
 
 //***FILTER***
