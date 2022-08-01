@@ -42,11 +42,11 @@ const characters = [
 
 //1. Get total mass of all characters
 const totalMass = characters.reduce((acc, cur) => acc + cur.mass, 0); // initialize the acc with 0
-console.log("---- Total Mass Reduce Function:", totalMass);
+console.log("---- Total mass reduce function:", totalMass);
 
 //2. Get total height of all characters
 const totalHeight = characters.reduce((acc, cur) => acc + cur.height, 0); // initialize the acc with 0
-console.log("---- Total Height Reduce Function:", totalHeight);
+console.log("---- Total height reduce function:", totalHeight);
 
 //3. Get total number of characters by eye color
 // Initialize acc as empty object - return {color: count}
@@ -63,11 +63,18 @@ const charactersByEyeColor = characters.reduce((acc, cur) => {
   return acc;
 }, {}); // initialize the acc with 0
 console.log(
-  "---- Characters by Eye Color Reduce Function:",
+  "---- Characters by eye color reduce function:",
   charactersByEyeColor
 );
 
 //4. Get total number of characters in all the character names
+const totalNumCharactersByName = characters.reduce((acc, cur) => {
+  return acc + cur.name.length;
+}, 0);
+console.log(
+  "---- Total number of characters in all names reduce function:",
+  totalNumCharactersByName
+);
 
 //***FILTER***
 //1. Get characters with mass greater than 100
